@@ -2,9 +2,6 @@
 import { type ButtonPage } from '../schema';
 
 export async function getButtonPage(): Promise<ButtonPage> {
-    // This is a placeholder declaration! Real code should be implemented here.
-    // The goal of this handler is returning HTML content for a page with a single red button.
-    
     const html = `
 <!DOCTYPE html>
 <html lang="en">
@@ -21,16 +18,21 @@ export async function getButtonPage(): Promise<ButtonPage> {
             align-items: center;
             min-height: 100vh;
             background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
         }
         
         .red-button {
-            width: 100px;
-            height: 50px;
+            width: 200px;
+            height: 60px;
             background-color: #ff0000;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
             outline: none;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
         }
         
         .red-button:hover {
@@ -43,12 +45,12 @@ export async function getButtonPage(): Promise<ButtonPage> {
     </style>
 </head>
 <body>
-    <button class="red-button" onclick=""></button>
+    <button class="red-button" onclick="alert('Button clicked!')">Click Me!</button>
 </body>
 </html>`;
 
-    return Promise.resolve({
+    return {
         html,
         title: 'Red Button Page'
-    } as ButtonPage);
+    };
 }
